@@ -19,6 +19,7 @@ saves/
 
 *.rpyc
 *.rpymc
+*.bak
 
 
 # The log file and other misc things #
