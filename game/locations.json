@@ -1,0 +1,17 @@
+{
+  "park": {
+    "name_pretty": "Generictown Central Park"
+  },
+  "library": {
+    "name_pretty": "Generictown Public Library"
+  },
+  "mall": {
+    "name_pretty": "RichCo Shopping Centre"
+  },
+  "gallery": {
+    "name_pretty": "FamousArtist Public Gallery"
+  },
+  "alleyway": {
+    "name_pretty": "Shady Alleyway"
+  }
+}
