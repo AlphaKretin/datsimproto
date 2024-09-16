@@ -23,7 +23,15 @@ screen map_screen():
 
 label load_map(name):
     scene expression "bg " + name
-    "test message"
+    $ met_someone = False
+    python:
+        for character in characters:
+            print(character)
+            if character["schedule"][time] == name:
+                met_someone = True
+                renpy.call("scene_" + character["name"] + "_" + name, character["sayer"])
+    if not met_someone:
+        "Doesn't look like anyone's here right now..."
     $ time = (time + 1) % 3
 
 label map_menu:
