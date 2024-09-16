@@ -1,12 +1,21 @@
-﻿define p = Character("Popular")
+﻿init -2 define char_popular = {
+    "name": "popular",
+    "sayer": Character("Popular"),
+    "schedule": ["mall", "mall", "gallery"]
+}
 
-label popular:
-
-    scene bg mall
-
+label scene_popular_mall(sayer):
     show popular
 
-    n "Let's go shopping!"
+    sayer "Let's go shopping!"
     call boost_stat(fas)
+
+    return
+
+label scene_popular_gallery(sayer):
+    show popular
+
+    sayer "This art is as pretty as me!"
+    call boost_stat(cre)
 
     return

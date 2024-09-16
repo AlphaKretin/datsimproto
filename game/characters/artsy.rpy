@@ -1,12 +1,13 @@
-﻿define a = Character("Artsy")
+﻿init -2 define char_artsy = {
+    "name": "artsy",
+    "sayer": Character("Artsy"),
+    "schedule": ["gallery", "gallery", None]
+}
 
-label artsy:
-
-    scene bg gallery
-
+label scene_artsy_gallery(sayer):
     show artsy
 
-    n "Look at this photograph!"
+    sayer "Look at this photograph!"
     call boost_stat(cre)
 
     return

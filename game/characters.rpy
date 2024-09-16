@@ -1,1 +1,1 @@
-init -1 define characters = [char_sporty]
+init -1 define characters = [char_sporty, char_artsy, char_nerdy, char_popular, char_delinquent]

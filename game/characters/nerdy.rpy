@@ -1,12 +1,21 @@
-﻿define n = Character("Nerdy")
+﻿init -2 define char_nerdy = {
+    "name": "nerdy",
+    "sayer": Character("Nerdy"),
+    "schedule": ["library", "library", "alleyway"]
+}
 
-label nerdy:
-
-    scene bg library
-
+label scene_nerdy_library(sayer):
     show nerdy
 
-    n "Help me study this textbook."
+    sayer "Help me study this textbook."
     call boost_stat(kno)
+
+    return
+
+label scene_nerdy_alleyway(sayer):
+    show nerdy
+
+    sayer "I'm getting parts for my experiments."
+    call boost_stat(cun)
 
     return

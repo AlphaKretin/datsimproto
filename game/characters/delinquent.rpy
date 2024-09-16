@@ -1,12 +1,13 @@
-﻿define d = Character("Delinquent")
+﻿init -2 define char_delinquent = {
+    "name": "delinquent",
+    "sayer": Character("Delinquent"),
+    "schedule": ["alleyway", "alleyway", None]
+}
 
-label delinquent:
-
-    scene bg alley
-
+label scene_delinquent_alleyway(sayer):
     show delinquent
 
-    n "Better watch out in this part of town."
+    sayer "Better watch out in this part of town."
     call boost_stat(cun)
 
     return
