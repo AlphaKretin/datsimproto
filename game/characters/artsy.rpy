@@ -1,5 +1,6 @@
 ﻿init -2 define char_artsy = {
     "name": "artsy",
+    "name_pretty": "Artsy",
     "sayer": Character("Artsy"),
     "schedule": ["gallery", "gallery", None]
 }

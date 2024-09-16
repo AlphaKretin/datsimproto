@@ -13,6 +13,11 @@ screen debug_screen():
         text "Cunning: [stats[cun]]"
         text "Creativity: [stats[cre]]"
         text "Time: [time]"
+        $ chars = characters.items()
+        for char in chars:
+            $ name_pretty = char[1]["name_pretty"]
+            $ aff = affections[char[1]["name"]]
+            text "[name_pretty]: [aff]"
 
 screen map_screen():
     vbox:
@@ -23,42 +28,21 @@ screen map_screen():
 
 label load_map(name):
     scene expression "bg " + name
-    $ met_someone = False
+    $ met_someone = None
     python:
-        for character in characters:
-            print(character)
+        for _,character in characters.items():
             if character["schedule"][time] == name:
-                met_someone = True
+                met_someone = character["name"]
                 renpy.call("scene_" + character["name"] + "_" + name, character["sayer"])
-    if not met_someone:
+    if met_someone != None:
+        call expression "boost_affection" pass (met_someone)
+    else:
         "Doesn't look like anyone's here right now..."
     $ time = (time + 1) % 3
 
 label map_menu:
-
     scene bg city
     show screen debug_screen()
     call screen map_screen()
-
-    # menu:
-    #     "Where should I go?"
-
-    #     "Park":
-    #         call sporty
-        
-    #     "Library":
-    #         call nerdy
-        
-    #     "Mall":
-    #         call popular
-
-    #     "Gallery":
-    #         call artsy
-
-    #     "Alleyway":
-    #         call delinquent
-        
-    #     "(DEBUG) Check Stats":
-    #         call check_stats
 
     return

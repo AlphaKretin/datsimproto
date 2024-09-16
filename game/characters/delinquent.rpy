@@ -1,5 +1,6 @@
 ﻿init -2 define char_delinquent = {
     "name": "delinquent",
+    "name_pretty": "Delinquent",
     "sayer": Character("Delinquent"),
     "schedule": ["alleyway", "alleyway", None]
 }

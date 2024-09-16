@@ -16,10 +16,3 @@ label boost_stat(stat):
     $ stats[stat] += 1
     "Your [stat] increased."
     return
-
-label check_stats:
-    "Fitness: [stats[fit]]"
-    "Knowledge: [stats[kno]]"
-    "Fashion: [stats[fas]]"
-    "Cunning: [stats[cun]]"
-    "Creativity: [stats[cre]]"

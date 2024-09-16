@@ -1,5 +1,6 @@
 ﻿init -2 define char_popular = {
     "name": "popular",
+    "name_pretty": "Popular",
     "sayer": Character("Popular"),
     "schedule": ["mall", "mall", "gallery"]
 }
