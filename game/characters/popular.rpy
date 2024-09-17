@@ -6,15 +6,14 @@
 }
 
 label scene_popular_mall(sayer):
-    show popular
-
+    show popular at center, size_normal
     sayer "Let's go shopping!"
     call boost_stat(fas)
 
     return
 
 label scene_popular_gallery(sayer):
-    show popular
+    show popular at center, size_normal
 
     sayer "This art is as pretty as me!"
     call boost_stat(cre)

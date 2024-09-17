@@ -6,7 +6,7 @@
 }
 
 label scene_artsy_gallery(sayer):
-    show artsy
+    show artsy at center, size_normal
 
     sayer "Look at this photograph!"
     call boost_stat(cre)

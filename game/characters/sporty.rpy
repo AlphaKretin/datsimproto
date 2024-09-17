@@ -6,7 +6,7 @@
 }
 
 label scene_sporty_park(sayer):
-    show sporty
+    show sporty at center, size_normal
 
     sayer "Hey, let's go for a jog!"
     call boost_stat(fit)

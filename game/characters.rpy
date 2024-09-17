@@ -19,3 +19,7 @@ label boost_affection(name):
     $ pretty_name = characters[name]["name_pretty"]
     "I feel a bit closer to [pretty_name]."
     return
+
+transform size_normal:
+    ysize 600
+    fit "contain"

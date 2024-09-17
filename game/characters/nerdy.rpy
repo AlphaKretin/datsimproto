@@ -6,7 +6,7 @@
 }
 
 label scene_nerdy_library(sayer):
-    show nerdy
+    show nerdy at center, size_normal
 
     sayer "Help me study this textbook."
     call boost_stat(kno)
@@ -14,7 +14,7 @@ label scene_nerdy_library(sayer):
     return
 
 label scene_nerdy_alleyway(sayer):
-    show nerdy
+    show nerdy at center, size_normal
 
     sayer "I'm getting parts for my experiments."
     call boost_stat(cun)
