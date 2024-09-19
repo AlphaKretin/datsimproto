@@ -9,7 +9,7 @@ init python:
 
 default time = 0
 
-define DEBUG = False
+define DEBUG = True
 
 screen map_screen():
     add "images/bgs/bg city.png"
@@ -45,7 +45,7 @@ label load_map(map_name):
     scene expression "bg " + map_name
     $ met_someone = None
     python:
-        for _,character in characters.items():
+        for dummy,character in characters.items():
             if character.schedule[time] == map_name:
                 met_someone = character.name
                 renpy.call("scene_" + character.name + "_" + map_name, character.sayer)
