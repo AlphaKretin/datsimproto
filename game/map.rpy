@@ -20,11 +20,18 @@ screen debug_screen():
             text "[name_pretty]: [aff]"
 
 screen map_screen():
-    vbox:
-        for name in locations:
-            $ print(locations[name])
-            $ name_pretty = locations[name]["name_pretty"]
-            textbutton "[name_pretty]" action [Call("load_map",name)]
+    add "images/bgs/bg city.png"
+    for name in locations:
+        $ name_pretty = locations[name]["name_pretty"]
+        $ x = locations[name]["pos_x"]
+        $ y = locations[name]["pos_y"]
+        imagebutton:
+            pos (x,y)
+            xysize (64,64)
+            anchor (0.5,0.5)
+            auto f"images/icons/button_{name}_%s.png"
+            # hovered Text(name_pretty)
+            action Call("load_map", name)
 
 label load_map(name):
     scene expression "bg " + name
@@ -41,7 +48,7 @@ label load_map(name):
     $ time = (time + 1) % 3
 
 label map_menu:
-    scene bg city
+    # scene bg city
     show screen debug_screen()
     call screen map_screen()
 

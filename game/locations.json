@@ -1,17 +1,27 @@
 {
   "park": {
-    "name_pretty": "Generictown Central Park"
+    "name_pretty": "Generictown Central Park",
+    "pos_x": 600,
+    "pos_y": 675
   },
   "library": {
-    "name_pretty": "Generictown Public Library"
+    "name_pretty": "Generictown Public Library",
+    "pos_x": 630,
+    "pos_y": 450
   },
   "mall": {
-    "name_pretty": "RichCo Shopping Centre"
+    "name_pretty": "RichCo Shopping Centre",
+    "pos_x": 930,
+    "pos_y": 585
   },
   "gallery": {
-    "name_pretty": "FamousArtist Public Gallery"
+    "name_pretty": "FamousArtist Public Gallery",
+    "pos_x": 240,
+    "pos_y": 330
   },
   "alleyway": {
-    "name_pretty": "Shady Alleyway"
+    "name_pretty": "Shady Alleyway",
+    "pos_x": 160,
+    "pos_y": 600
   }
 }
