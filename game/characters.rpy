@@ -8,6 +8,10 @@ init -3 python:
             else:
                 self.sayer = Character(name_pretty)
             self.schedule = schedule
+            self.affection = 0
+        
+        def boost_affection(self,amount=1):
+            self.affection = self.affection + amount
             
 
 init -1 define characters = {
@@ -18,17 +22,9 @@ init -1 define characters = {
     "delinquent": char_delinquent
 }
 
-init define affections = {
-    "sporty": 0,
-    "artsy": 0,
-    "nerdy": 0,
-    "popular": 0,
-    "delinquent": 0
-}
-
 label boost_affection(name):
-    $ affections[name] += 1
     $ pretty_name = characters[name].name_pretty
+    $ characters[name].boost_affection()
     "I feel a bit closer to [pretty_name]."
     return
 

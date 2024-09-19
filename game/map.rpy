@@ -5,19 +5,7 @@ init python:
 
 default time = 0
 
-screen debug_screen():
-    vbox:
-        text "Fitness: [stats[fit]]"
-        text "Knowledge: [stats[kno]]"
-        text "Fashion: [stats[fas]]"
-        text "Cunning: [stats[cun]]"
-        text "Creativity: [stats[cre]]"
-        text "Time: [time]"
-        $ chars = characters.items()
-        for char in chars:
-            $ name_pretty = char[1].name_pretty
-            $ aff = affections[char[1].name]
-            text "[name_pretty]: [aff]"
+define DEBUG = True
 
 screen map_screen():
     add "images/bgs/bg city.png"
@@ -35,6 +23,19 @@ screen map_screen():
             hovered SetScreenVariable("hoveredIcon", name_pretty)
             unhovered SetScreenVariable("hoveredIcon", "")
             action Call("load_map", name)
+    if DEBUG:
+        vbox:
+            text "Fitness: [stats[fit]]"
+            text "Knowledge: [stats[kno]]"
+            text "Fashion: [stats[fas]]"
+            text "Cunning: [stats[cun]]"
+            text "Creativity: [stats[cre]]"
+            text "Time: [time]"
+            $ chars = characters.items()
+            for char in chars:
+                $ name_pretty = char[1].name_pretty
+                $ aff = char[1].affection
+                text "[name_pretty]: [aff]"
 
 label load_map(name):
     scene expression "bg " + name
@@ -52,7 +53,6 @@ label load_map(name):
 
 label map_menu:
     # scene bg city
-    show screen debug_screen()
     call screen map_screen()
-
+    show screen debug_screen()
     return
