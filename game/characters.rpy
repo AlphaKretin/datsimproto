@@ -1,7 +1,7 @@
 init -3 python:
     class Girl():
-        def __init__(self, name, name_pretty, schedule, color=None):
-            self.name = name
+        def __init__(self, char_name, name_pretty, schedule, color=None):
+            self.name = char_name
             self.name_pretty = name_pretty
             if color != None:
                 self.sayer = Character(name_pretty, color)
@@ -22,9 +22,9 @@ init -1 define characters = {
     "delinquent": char_delinquent
 }
 
-label boost_affection(name):
-    $ pretty_name = characters[name].name_pretty
-    $ characters[name].boost_affection()
+label boost_affection(char_name):
+    $ pretty_name = characters[char_name].name_pretty
+    $ characters[char_name].boost_affection()
     "I feel a bit closer to [pretty_name]."
     return
 

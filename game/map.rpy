@@ -11,18 +11,18 @@ screen map_screen():
     add "images/bgs/bg city.png"
     default hoveredIcon = ""
     text f"{hoveredIcon}" at center, top
-    for name in locations:
-        $ name_pretty = locations[name]["name_pretty"]
-        $ x = locations[name]["pos_x"]
-        $ y = locations[name]["pos_y"]
+    for char_name in locations:
+        $ name_pretty = locations[char_name]["name_pretty"]
+        $ x = locations[char_name]["pos_x"]
+        $ y = locations[char_name]["pos_y"]
         imagebutton:
             pos (x,y)
             xysize (64,64)
             anchor (0.5,0.5)
-            auto f"images/icons/button_{name}_%s.png"
+            auto f"images/icons/button_{char_name}_%s.png"
             hovered SetScreenVariable("hoveredIcon", name_pretty)
             unhovered SetScreenVariable("hoveredIcon", "")
-            action Call("load_map", name)
+            action Call("load_map", char_name)
     if DEBUG:
         vbox:
             text "Fitness: [stats[fit]]"
@@ -37,14 +37,14 @@ screen map_screen():
                 $ aff = char[1].affection
                 text "[name_pretty]: [aff]"
 
-label load_map(name):
-    scene expression "bg " + name
+label load_map(map_name):
+    scene expression "bg " + map_name
     $ met_someone = None
     python:
         for _,character in characters.items():
-            if character.schedule[time] == name:
+            if character.schedule[time] == map_name:
                 met_someone = character.name
-                renpy.call("scene_" + character.name + "_" + name, character.sayer)
+                renpy.call("scene_" + character.name + "_" + map_name, character.sayer)
     if met_someone != None:
         call expression "boost_affection" pass (met_someone)
     else:
