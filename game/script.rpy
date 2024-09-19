@@ -1,4 +1,2 @@
-﻿init python: 
-    config.save_dump = True
-label start:
+﻿label start:
     jump map_menu
