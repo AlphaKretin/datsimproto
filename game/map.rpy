@@ -11,18 +11,18 @@ screen map_screen():
     add "images/bgs/bg city.png"
     default hoveredIcon = ""
     text f"{hoveredIcon}" at center, top
-    for char_name in locations:
-        $ name_pretty = locations[char_name]["name_pretty"]
-        $ x = locations[char_name]["pos_x"]
-        $ y = locations[char_name]["pos_y"]
+    for map_name in locations:
+        $ name_pretty = locations[map_name]["name_pretty"]
+        $ x = locations[map_name]["pos_x"]
+        $ y = locations[map_name]["pos_y"]
         imagebutton:
             pos (x,y)
             xysize (64,64)
             anchor (0.5,0.5)
-            auto f"images/icons/button_{char_name}_%s.png"
+            auto f"images/icons/button_{map_name}_%s.png"
             hovered SetScreenVariable("hoveredIcon", name_pretty)
             unhovered SetScreenVariable("hoveredIcon", "")
-            action Call("load_map", char_name)
+            action Call("load_map", map_name)
     if DEBUG:
         vbox:
             text "Fitness: [stats[fit]]"
