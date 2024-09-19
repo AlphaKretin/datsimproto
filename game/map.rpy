@@ -1,25 +1,29 @@
+define locations = {}
+
 init python:
     import json
     locations_file = renpy.open_file("locations.json", "utf-8")
-    locations = json.load(locations_file)
+    locations_raw = json.load(locations_file)
+    for loc_name, location in locations_raw.items():
+        locations[loc_name] = Location(loc_name, location)
 
 default time = 0
 
-define DEBUG = True
+define DEBUG = False
 
 screen map_screen():
     add "images/bgs/bg city.png"
     default hoveredIcon = ""
     text f"{hoveredIcon}" at center, top
     for map_name in locations:
-        $ name_pretty = locations[map_name]["name_pretty"]
-        $ x = locations[map_name]["pos_x"]
-        $ y = locations[map_name]["pos_y"]
+        $ name_pretty = locations[map_name].name_pretty
+        $ map_position = locations[map_name].pos
+        $ map_button = locations[map_name].button
         imagebutton:
-            pos (x,y)
+            pos map_position
             xysize (64,64)
             anchor (0.5,0.5)
-            auto f"images/icons/button_{map_name}_%s.png"
+            auto map_button
             hovered SetScreenVariable("hoveredIcon", name_pretty)
             unhovered SetScreenVariable("hoveredIcon", "")
             action Call("load_map", map_name)
