@@ -3,7 +3,7 @@ init python:
     locations_file = renpy.open_file("locations.json", "utf-8")
     locations = json.load(locations_file)
 
-define time = 0
+default time = 0
 
 screen debug_screen():
     vbox:
@@ -15,8 +15,8 @@ screen debug_screen():
         text "Time: [time]"
         $ chars = characters.items()
         for char in chars:
-            $ name_pretty = char[1]["name_pretty"]
-            $ aff = affections[char[1]["name"]]
+            $ name_pretty = char[1].name_pretty
+            $ aff = affections[char[1].name]
             text "[name_pretty]: [aff]"
 
 screen map_screen():
@@ -41,9 +41,9 @@ label load_map(name):
     $ met_someone = None
     python:
         for _,character in characters.items():
-            if character["schedule"][time] == name:
-                met_someone = character["name"]
-                renpy.call("scene_" + character["name"] + "_" + name, character["sayer"])
+            if character.schedule[time] == name:
+                met_someone = character.name
+                renpy.call("scene_" + character.name + "_" + name, character.sayer)
     if met_someone != None:
         call expression "boost_affection" pass (met_someone)
     else:

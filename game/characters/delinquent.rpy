@@ -1,9 +1,4 @@
-﻿init -2 define char_delinquent = {
-    "name": "delinquent",
-    "name_pretty": "Delinquent",
-    "sayer": Character("Delinquent"),
-    "schedule": ["alleyway", "alleyway", None]
-}
+﻿init -2 define char_delinquent = Girl("delinquent", "Delinquent", ["alleyway", "alleyway", None])
 
 label scene_delinquent_alleyway(sayer):
     show delinquent at center, size_normal

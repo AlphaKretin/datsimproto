@@ -1,9 +1,4 @@
-﻿init -2 define char_popular = {
-    "name": "popular",
-    "name_pretty": "Popular",
-    "sayer": Character("Popular"),
-    "schedule": ["mall", "mall", "gallery"]
-}
+﻿init -2 define char_popular = Girl("popular", "Popular", ["mall", "mall", "gallery"])
 
 label scene_popular_mall(sayer):
     show popular at center, size_normal

@@ -1,9 +1,4 @@
-﻿init -2 define char_nerdy = {
-    "name": "nerdy",
-    "name_pretty": "Nerdy",
-    "sayer": Character("Nerdy"),
-    "schedule": ["library", "library", "alleyway"]
-}
+﻿init -2 define char_nerdy = Girl("nerdy", "Nerdy", ["library", "library", "alleyway"])
 
 label scene_nerdy_library(sayer):
     show nerdy at center, size_normal

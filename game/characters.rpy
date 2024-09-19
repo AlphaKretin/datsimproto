@@ -1,3 +1,15 @@
+init -3 python:
+    class Girl():
+        def __init__(self, name, name_pretty, schedule, color=None):
+            self.name = name
+            self.name_pretty = name_pretty
+            if color != None:
+                self.sayer = Character(name_pretty, color)
+            else:
+                self.sayer = Character(name_pretty)
+            self.schedule = schedule
+            
+
 init -1 define characters = {
     "sporty": char_sporty, 
     "artsy": char_artsy, 
@@ -16,7 +28,7 @@ init define affections = {
 
 label boost_affection(name):
     $ affections[name] += 1
-    $ pretty_name = characters[name]["name_pretty"]
+    $ pretty_name = characters[name].name_pretty
     "I feel a bit closer to [pretty_name]."
     return
 
