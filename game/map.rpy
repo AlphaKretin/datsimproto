@@ -21,6 +21,8 @@ screen debug_screen():
 
 screen map_screen():
     add "images/bgs/bg city.png"
+    default hoveredIcon = ""
+    text f"{hoveredIcon}" at center, top
     for name in locations:
         $ name_pretty = locations[name]["name_pretty"]
         $ x = locations[name]["pos_x"]
@@ -30,7 +32,8 @@ screen map_screen():
             xysize (64,64)
             anchor (0.5,0.5)
             auto f"images/icons/button_{name}_%s.png"
-            # hovered Text(name_pretty)
+            hovered SetScreenVariable("hoveredIcon", name_pretty)
+            unhovered SetScreenVariable("hoveredIcon", "")
             action Call("load_map", name)
 
 label load_map(name):
